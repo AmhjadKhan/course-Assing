@@ -1,15 +1,21 @@
 
 
 const Course = ({ selectedCourses }) => {
+  const listItemStyle = {
+    listStyle: 'none',
+    fontSize : ' x-large',
+  };
   return (
     <div>
       <h1>list item</h1>
-      {/* <h1>Selected Courses{selectedCourses.length}</h1> */}
-      {/* <ul>
+      <h2>Selected Courses{selectedCourses.length}</h2>
+      <ul>
         {selectedCourses.map((course, index) => (
-          <li key={index}>{course.Name}</li>
+          <li key={index} style={listItemStyle}>
+          {`${index + 1}. ${course.Title}`}
+        </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };

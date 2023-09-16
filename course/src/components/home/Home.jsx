@@ -4,7 +4,8 @@ import Cousre from '../course/Cousre'
 
 function Home() {
     const [allcourses, setAllcourses] = useState([]);
-    const [selectedCourses, setSelectedCourses] =([])
+    const [selectedCourses, setSelectedCourses] = useState([]);
+
 
     useEffect(()=>{
         fetch('./data.json')
@@ -13,9 +14,14 @@ function Home() {
     }, [])
 
     const handleSelecteCourse = (course) => {
-        setSelectedCourses([...selectedCourses, course]);
+      const isExist = selectedCourses.find(item => item.id == course.id);
+       if(isExist) {
+        alert('allready selected')
+       }
+       else{
+        setSelectedCourses([...selectedCourses,course]);
+       } 
       };
-    // console.log(selectedCourses)
   return (
     <div className='container'>
         <div className="home-container">
