@@ -5,6 +5,8 @@ import Cousre from '../course/Cousre'
 function Home() {
     const [allcourses, setAllcourses] = useState([]);
     const [selectedCourses, setSelectedCourses] = useState([]);
+    const [reamainTime, setReamainTime] = useState(20);
+    const [totalTime, setTotalTime] = useState(0)
 
 
     useEffect(()=>{
@@ -15,11 +17,24 @@ function Home() {
 
     const handleSelecteCourse = (course) => {
       const isExist = selectedCourses.find(item => item.id == course.id);
+      let count = course.Time;
+
        if(isExist) {
-        alert('allready selected')
+        return alert('allready selected')
        }
        else{
+        selectedCourses.forEach(item =>{
+          count = count + item.Time;
+        });
+        const totalReamainTime = 20 - count;
+         setTotalTime(count);
+         if(count >= 20){
+           alert("you have to select less courses")
+         } else{
+         setReamainTime(totalReamainTime)
+         setReamainTime(totalReamainTime)
         setSelectedCourses([...selectedCourses,course]);
+        }
        } 
       };
   return (
@@ -47,7 +62,7 @@ function Home() {
                 }
             </div>
             <div className="cart">
-                <Cousre selectedCourses={selectedCourses}></Cousre>
+                <Cousre selectedCourses={selectedCourses} reamainTime={reamainTime} totalTime={totalTime}></Cousre>
             </div>
         </div>  
     </div>
