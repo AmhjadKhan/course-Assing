@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './home.css'
 import Cousre from '../course/Cousre'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { BsBook } from 'react-icons/Bs';
 
 function Home() {
     const [allcourses, setAllcourses] = useState([]);
@@ -20,7 +22,7 @@ function Home() {
       let count = course.Time;
 
        if(isExist) {
-        return alert('allready selected')
+         alert('allready selected')
        }
        else{
         selectedCourses.forEach(item =>{
@@ -31,7 +33,6 @@ function Home() {
          if(count >= 20){
            alert("you have to select less courses")
          } else{
-         setReamainTime(totalReamainTime)
          setReamainTime(totalReamainTime)
         setSelectedCourses([...selectedCourses,course]);
         }
@@ -55,7 +56,7 @@ function Home() {
                     </p>
                     <div className="info">
                       <h2>${course?.Price}</h2>
-                      <h2>{course?.Time}hrs</h2>
+                      <h2><BsBook /> {course?.Time}hrs</h2>
                     </div>
                     <button onClick={() =>handleSelecteCourse(course)} className='card-btn'>Select</button>
                   </div>)

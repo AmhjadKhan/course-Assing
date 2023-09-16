@@ -9,7 +9,6 @@ const Course = ({ selectedCourses, reamainTime, totalTime }) => {
     <div>
       <h2>Selected Courses{selectedCourses.length}</h2>
       <h2>Remaning Time:{reamainTime} Hrs</h2> 
-      <h2>Total Time:{totalTime} Hrs</h2>
       <ul>
         {selectedCourses.map((course, index) => (
           <li key={index} style={listItemStyle}>
@@ -17,6 +16,7 @@ const Course = ({ selectedCourses, reamainTime, totalTime }) => {
         </li>
         ))}
       </ul>
+      <h2>Total Time:{totalTime} Hrs</h2>
     </div>
   );
 };
