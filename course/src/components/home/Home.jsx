@@ -31,7 +31,7 @@ function Home() {
         const totalReamainTime = 20 - count;
          setTotalTime(count);
          if(count >= 20){
-           alert("you have to select less courses")
+           alert("you have alredy 20 hrs plus")
          } else{
          setReamainTime(totalReamainTime)
         setSelectedCourses([...selectedCourses,course]);
