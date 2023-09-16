@@ -1,4 +1,4 @@
-
+import './course.css'
 
 const Course = ({ selectedCourses, reamainTime, totalTime }) => {
   const listItemStyle = {
@@ -7,8 +7,8 @@ const Course = ({ selectedCourses, reamainTime, totalTime }) => {
   };
   return (
     <div>
-      <h2>Selected Courses{selectedCourses.length}</h2>
-      <h2>Remaning Time:{reamainTime} Hrs</h2> 
+      <h2 className="header1">Credit Hour Remaining {reamainTime} Hr</h2> 
+      <h2>Course List:</h2>
       <ul>
         {selectedCourses.map((course, index) => (
           <li key={index} style={listItemStyle}>
